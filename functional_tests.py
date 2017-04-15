@@ -1,27 +1,49 @@
-#Somchai heard about money management web app.. he want to try. first he go to it's homepage.
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import unittest
+import time
 
-#First thing he saw is title.The title name is "Money management".
+class NewVisitorTest(unittest.TestCase):
 
-#He interest about "Manage your saving" and he try to click this.
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-#He go to new url. This is "Saving Management"
+    def tearDown(self):
+        self.browser.quit()
 
-#He try to fill his income and outcome then he submit.
+    def test_can_start_a_list_and_retrieve_it_later(self):
+        #Somchai heard about money management web app.. he want to try. first
+        #he go to it's homepage.
+        self.browser.get('http://localhost:8000')
 
-#He saw history about his saving. an he come back to home page.
+        #First thing he saw is title.The title name is "Money management".
+        title_text = self.browser.find_element_by_tag_name('title').text
+        self.assertIn('Money Management', title_text)
+        self.fail('Finish the test!')
 
-#he look at the pie chart about his money.
+        #He interest about "Manage your saving" and he try to click this.
 
-#Next,he found chart about gold price,stock price and Deposit interests.
+        #He go to new url. This is "Saving Management"
 
-#He interest about gold price.then he go to see gold price history.
+        #He try to fill his income and outcome then he submit.
 
-#He think gold is a bad way to invest.then he come back.
+        #He saw history about his saving. an he come back to home page.
 
-#Next,he go to stock price page.
+        #he look at the pie chart about his money.
 
-#That's good he think the stock is a best way to invest.he go back to home page.
+        #Next,he found chart about gold price,stock price and Deposit interests.
 
-#He go to see bank interests it's not a way to rich.
+        #He interest about gold price.then he go to see gold price history.
 
-#He found the  best way he want to invest.
+        #He think gold is a bad way to invest.then he come back.
+
+        #Next,he go to stock price page.
+
+        #That's good he think the stock is a best way to invest.he go back to home page.
+
+        #He go to see bank interests it's not a way to rich.
+
+        #He found the  best way he want to invest.
+
+if __name__ == '__main__':  #7
+    unittest.main(warnings='ignore')
