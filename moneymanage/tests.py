@@ -15,3 +15,9 @@ class HomePageTest(TestCase):
         response = home_page(request)
         expected_html = render_to_string('home.html')
         self.assertEqual(response.content.decode(), expected_html)
+
+class SavingTest(TestCase):
+
+    def test_uses_saving_template(self):
+        response = self.client.get('http://localhost:8000/saving')
+        self.assertTemplateUsed(response, 'saving.html')

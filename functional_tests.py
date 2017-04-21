@@ -17,17 +17,35 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.get('http://localhost:8000')
 
         #First thing he saw is title.The title name is "Money management".
-        title_text = self.browser.find_element_by_tag_name('title').text
-        self.assertIn('Money Management', title_text)
-        self.fail('Finish the test!')
+        title_home = self.browser.find_element_by_tag_name('title').text
+        self.assertIn('Money Management', title_home)
 
         #He interest about "Manage your saving" and he try to click this.
+        link = self.browser.find_element_by_partial_link_text('Manage')
+        self.assertIn('Manage your saving', link.text)
+        link.click()
+        time.sleep(3)
 
         #He go to new url. This is "Saving Management"
+        title_sav = self.browser.find_element_by_tag_name('title').text
+        self.assertIn('Saving Management', title_sav)
 
-        #He try to fill his income and outcome then he submit.
+        #He try to fill his income 17000$ about 'Money in banking' then he submit.
+        sav_type = self.browser.find_element_by_id("id_type")
+        sav_type.click()
+        inputbox1 = self.browser.find_element_by_id('id_val')
+        inputbox1.send_keys('17000')
+        inputbox2 = self.browser.find_element_by_id('id_des')
+        inputbox2.send_keys('Money in banking')
+        inputbox2.send_keys(Keys.ENTER)
 
         #He saw history about his saving. an he come back to home page.
+        table = self.browser.find_element_by_id('saving_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn('Money in banking', [row.text for row in rows])
+        self.browser.find_element_by_partial_link_text('Back').click()
+        time.sleep(5)
+        self.fail('Finish the test!')
 
         #he look at the pie chart about his money.
 
