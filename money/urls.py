@@ -18,7 +18,7 @@ from django.contrib import admin
 from moneymanage import views
 
 urlpatterns = [
-    url(r'^$', views.home_page, name='home'),
+    url(r'^$', views.home, name='home'),
     url(r'^saving$', views.saving, name='saving'),
     url(r'^admin/', admin.site.urls),
 ]

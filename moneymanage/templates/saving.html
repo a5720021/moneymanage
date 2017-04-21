@@ -7,8 +7,12 @@
         <input type="radio" name="type" id="id_type" value="outcome" checked> outcome<br><br>
         <input name="value" id="id_val" placeholder="Amount" />
         <input name="description" id="id_des" placeholder="Description" />
+        <input type="submit" id="id_sub" value="Submit">
+        {% csrf_token %}
     </form>
     <table id="saving_table">
-    <a href="home">Back</a>
+        <tr><td>{{ new_sav_list }}</td></tr>
+    </table>
+    <a href='/'>Back</a>
    </body>
 </html>

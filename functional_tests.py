@@ -37,15 +37,19 @@ class NewVisitorTest(unittest.TestCase):
         inputbox1.send_keys('17000')
         inputbox2 = self.browser.find_element_by_id('id_des')
         inputbox2.send_keys('Money in banking')
-        inputbox2.send_keys(Keys.ENTER)
+        #inputbox2.send_keys(Keys.ENTER)
+        self.browser.find_element_by_id("id_sub").click()
+        time.sleep(2)
 
-        #He saw history about his saving. an he come back to home page.
+        #He saw history about his saving.
         table = self.browser.find_element_by_id('saving_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn('Money in banking', [row.text for row in rows])
+
+        #and he come back to home page.
         self.browser.find_element_by_partial_link_text('Back').click()
-        time.sleep(5)
         self.fail('Finish the test!')
+        time.sleep(5)
 
         #he look at the pie chart about his money.
 
