@@ -11,7 +11,20 @@
         {% csrf_token %}
     </form>
     <table id="saving_table">
-        <tr><td>{{ new_sav_list }}</td></tr>
+        <tr>
+             <th>Description</th>
+             <th>Amount</th>
+             <th>Type</th>
+             <th>Date</th>
+        </tr>
+            {% for item in items %}
+        <tr>    
+            <td>{{ item.description }}</td> 
+            <td>{{ item.amount }}</td>
+            <td>{{ item.sav_type }}</td>
+            <td>{{ item.sav_time }}</td>
+        </tr>
+            {% endfor %}
     </table>
     <a href='/'>Back</a>
    </body>
