@@ -1,10 +1,10 @@
 from django.core.urlresolvers import resolve
 from django.test import TestCase
-from moneymanage.views import home,saving
+from moneymanage.views import home,saving,gold
 from django.template.loader import render_to_string
 from django.http import HttpRequest,HttpResponse
 import re
-from moneymanage.models import Sav_list
+from moneymanage.models import Sav_list,Gold_price
 
 class HomePageTest(TestCase):
 
@@ -12,11 +12,18 @@ class HomePageTest(TestCase):
         found = resolve('/')
         self.assertEqual(found.func, home)
 
-    def test_home_page_returns_correct_html(self):
+    """def test_home_page_returns_correct_html(self):
         request = HttpRequest()
         response = home(request)
         expected_html = render_to_string('home.html')
-        self.assertEqual(response.content.decode(), expected_html)
+        self.assertEqual(response.content.decode(), expected_html)"""
+
+    def test_home_can_display_saving(self):
+        Sav_list.objects.create(description='Test Saving',amount=7000,sav_type='income')
+        request = HttpRequest()
+        response = home(request)
+
+        self.assertIn('7000',response.content.decode())
 
 class SavingTest(TestCase):
 
@@ -38,22 +45,38 @@ class SavingTest(TestCase):
         self.assertIn('Testsaving 1', self.remove_csrf(response.content.decode()))
         self.assertIn('Testsaving 2', self.remove_csrf(response.content.decode()))
 
-    """def test_sav_returns_correct_html(self):
-        request = HttpRequest()
-        response = saving(request)
-        expected_html = render_to_string('saving.html')
-        self.assertEqual(self.remove_csrf(response.content.decode()), expected_html)
+class GoldPageTest(TestCase):
 
-    def test_saving_can_save_a_POST_request(self):
-        request = HttpRequest()
-        request.method = 'POST'
-        request.POST['description'] = 'test'
-        response = saving(request)
-        self.assertIn('test', self.remove_csrf(response.content.decode()))
-        expected_html = render_to_string('saving.html',{'new_sav_list':  'test'})
-        self.assertEqual(self.remove_csrf(response.content.decode()), expected_html)"""
+    def remove_csrf(self,html_code):
+        csrf_regex = r'<input[^>]+csrfmiddlewaretoken[^>]+>'
+        return re.sub(csrf_regex,'',html_code)
 
-class ModelTest(TestCase):
+    def test_uses_saving_template(self):
+        response = self.client.get('http://localhost:8000/gold')
+        self.assertTemplateUsed(response, 'gold.html')
+
+    def test_gold_displays_all_list_items(self):
+        Gold_price.objects.create(buy_price=25000,sell_price='24000')
+        Gold_price.objects.create(buy_price=24500,sell_price='23500')
+
+        request = HttpRequest()
+        response = gold(request)
+        print self.remove_csrf(response.content.decode())
+        self.assertIn('25000', self.remove_csrf(response.content.decode()))
+        self.assertIn('24500', self.remove_csrf(response.content.decode()))
+
+class GoldModelTest(TestCase):
+
+    def test_saving_and_retrieving_items(self):
+        first_gold = Gold_price(buy_price=25000,sell_price='24000')
+        first_gold.save()
+
+        all_gold = Gold_price.objects.all()
+        self.assertEqual(all_gold.count(), 1)
+
+        self.assertEqual(all_gold[0].buy_price, 25000) 
+
+class SavModelTest(TestCase):
 
     def remove_csrf(self,html_code):
         csrf_regex = r'<input[^>]+csrfmiddlewaretoken[^>]+>'

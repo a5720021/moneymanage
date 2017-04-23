@@ -20,5 +20,6 @@ from moneymanage import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^saving$', views.saving, name='saving'),
+    url(r'^gold$', views.gold, name='gold'),
     url(r'^admin/', admin.site.urls),
 ]

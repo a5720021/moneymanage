@@ -1,0 +1,21 @@
+<html>
+    <title>Gold Price History</title>
+    <body>
+        <h1>Gold Price History Table</h1><br>
+        <table id="id_gold">
+            <tr>
+             <th>Date</th>
+             <th>Buy Price</th>
+             <th>Sell Price</th>
+            </tr>
+            {% for gold in goldall %}
+            <tr>    
+             <td>{{ gold.add_time }}</td> 
+             <td>{{ gold.buy_price }}</td>
+             <td>{{ gold.sell_price }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+        <a href="/">Back</a><br>
+    </body>
+</html>
