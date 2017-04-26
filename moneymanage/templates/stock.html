@@ -1,0 +1,23 @@
+<html>
+    <title>Stock Price</title>
+    <body>
+        <h1>Stock Price</h1><br>
+        <table id="id_stock">
+            <tr>
+             <th>Name</th>
+             <th>Value</th>
+             <th>Change</th>
+             <th>Date</th>
+            </tr>
+            {% for stock in stockall %}
+            <tr>    
+             <td>{{ stock.name }}</td> 
+             <td>{{ stock.value }}</td>
+             <td>{{ stock.change }}</td>
+             <td>{{ stock.add_time }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+        <a href="/">Back</a><br>
+    </body>
+</html>

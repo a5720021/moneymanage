@@ -1,0 +1,21 @@
+<html>
+    <title>Bank Interest</title>
+    <body>
+        <h1>Bank Interest</h1><br>
+        <table id="id_bank">
+            <tr>
+             <th>Name</th>
+             <th>Saving Profit(%)</th>
+             <th>Fixed Profit(%)</th>
+            </tr>
+            {% for bank in bankall %}
+            <tr>    
+             <td>{{ bank.name }}</td> 
+             <td>{{ bank.saving }}</td>
+             <td>{{ bank.fixed }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+        <a href="/">Back</a><br>
+    </body>
+</html>

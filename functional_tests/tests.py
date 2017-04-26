@@ -3,11 +3,17 @@ from selenium.webdriver.common.keys import Keys
 from django.test import LiveServerTestCase
 import unittest
 import time
-from moneymanage.models import Sav_list,Gold_price
+from moneymanage.models import Sav_list,Gold_price,Stock,Bank
 
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
+        Gold_price.objects.create(buy_price=25000,sell_price='24000')
+        Gold_price.objects.create(buy_price=24000,sell_price='23000')
+        Stock.objects.create(name='TES',value=2400,change=5.2)
+        Stock.objects.create(name='CPA',value=1500,change=-2.5)
+        Bank.objects.create(name='Kasikorn',fixed=1.2,saving=0.5)
+        Bank.objects.create(name='Krungsri',fixed=1.0,saving=0.6)
         self.browser = webdriver.Firefox()
 
     def tearDown(self):
@@ -71,19 +77,33 @@ class NewVisitorTest(LiveServerTestCase):
         gold_page = self.browser.find_element_by_partial_link_text('Gold')
         self.assertIn('View Gold Price History', gold_page.text)
         gold_page.click()
+        time.sleep(2)
 
         #He's now in a Gold Price History Page.
         #He think gold is a bad way to invest.then he come back.
+        table = self.browser.find_element_by_id('id_gold')
+        rows = table.find_elements_by_tag_name('th')
+        self.assertIn('Buy Price', [row.text for row in rows])
+        self.browser.find_element_by_partial_link_text('Back').click()
+        time.sleep(2)
 
         #Next,he go to stock price page.
+        stock_page = self.browser.find_element_by_partial_link_text('Stock')
+        stock_page.click()
+        time.sleep(2)
+
+        #That's good he think the stock is a best way to invest.he go back to home page.
+        self.check_for_row_in_list_table('id_stock','TES')
+        self.check_for_row_in_list_table('id_stock','CPA')
+        self.browser.find_element_by_partial_link_text('Back').click()
+        time.sleep(2)
+
+        #He go to see bank interests it's not a way to rich.
+        bank_page = self.browser.find_element_by_partial_link_text('Bank')
+        bank_page.click()
+
+        #He found the  best way he want to invest and He close this app.
         time.sleep(5)
         self.fail('Finish the test!')
 
-        #That's good he think the stock is a best way to invest.he go back to home page.
 
-        #He go to see bank interests it's not a way to rich.
-
-        #He found the  best way he want to invest.
-
-if __name__ == '__main__':  #7
-    unittest.main(warnings='ignore')

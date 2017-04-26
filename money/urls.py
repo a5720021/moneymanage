@@ -21,5 +21,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^saving$', views.saving, name='saving'),
     url(r'^gold$', views.gold, name='gold'),
+    url(r'^stock$', views.stock, name='stock'),
+    url(r'^bank$', views.bank, name='bank'),
     url(r'^admin/', admin.site.urls),
 ]

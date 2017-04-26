@@ -1435,3 +1435,224 @@
 [Child 17119] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
 [Child 17119] ###!!! ABORT: Aborting on channel error.: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/glue/MessageChannel.cpp, line 2143
 [Child 17119] ###!!! ABORT: Aborting on channel error.: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/glue/MessageChannel.cpp, line 2143
+1493108474508	geckodriver	INFO	Listening on 127.0.0.1:53107
+1493108475577	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493108484875	Marionette	INFO	Listening on port 33569
+1493108485661	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XPCOMUtils.jsm, line 230: TypeError: Cc[aContract] is undefined
+1493108595896	geckodriver	INFO	Listening on 127.0.0.1:55892
+1493108596935	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.Bt5CSlvRjUae
+1493108596936	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args []
+1493108596942	geckodriver::marionette	INFO	Connecting to Marionette on localhost:38547
+1493108598480	Marionette	INFO	Listening on port 38547
+1493108600582	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XPCOMUtils.jsm, line 230: TypeError: Cc[aContract] is undefined
+1493108604094	Marionette	INFO	New connections will no longer be accepted
+[Child 2788] WARNING: pipe error (15): Connection reset by peer: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 2788] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 2788] ###!!! ABORT: Aborting on channel error.: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/glue/MessageChannel.cpp, line 2143
+[Child 2788] ###!!! ABORT: Aborting on channel error.: file /build/firefox-ZWwcnj/firefox-52.0.1+build2/ipc/glue/MessageChannel.cpp, line 2143
+1493109025784	geckodriver	INFO	Listening on 127.0.0.1:37448
+1493109026831	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493109029309	Marionette	INFO	Listening on port 46734
+1493109029479	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XPCOMUtils.jsm, line 230: TypeError: Cc[aContract] is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+
+(firefox:3388): LIBDBUSMENU-GTK-CRITICAL **: dbusmenu_menuitem_property_set_shortcut: assertion 'gtk_accelerator_valid(key, modifier)' failed
+1493212987469	geckodriver	INFO	Listening on 127.0.0.1:52863
+1493212988519	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493212989268	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493212989269	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493212989288	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493212989289	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493212990148	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493212990150	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493212990158	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493212990159	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493212993480	Marionette	INFO	Listening on port 38394
+1493212993692	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493213010489	Marionette	INFO	New connections will no longer be accepted
+[Child 5337] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493213084668	geckodriver	INFO	Listening on 127.0.0.1:34932
+1493213085722	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493213086435	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493213086436	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493213086454	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493213086455	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493213087258	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493213087259	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493213087267	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493213087268	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493213090366	Marionette	INFO	Listening on port 42219
+1493213090551	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493213107076	Marionette	INFO	New connections will no longer be accepted
+1493218444007	geckodriver	INFO	Listening on 127.0.0.1:57522
+1493218445040	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493218447025	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493218447027	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493218447047	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493218447048	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493218447981	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493218447982	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493218447991	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493218447992	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493218451670	Marionette	INFO	Listening on port 41137
+1493218451812	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493218468765	Marionette	INFO	New connections will no longer be accepted
+[Child 6817] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493221248596	geckodriver	INFO	Listening on 127.0.0.1:37244
+1493221249658	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221250535	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221250537	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221250554	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221250555	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221251500	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221251501	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221251509	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221251510	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221255304	Marionette	INFO	Listening on port 33201
+1493221255499	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221267107	Marionette	INFO	New connections will no longer be accepted
+1493221343563	geckodriver	INFO	Listening on 127.0.0.1:33187
+1493221344612	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221345340	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221345342	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221345359	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221345360	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221346227	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221346228	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221346236	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221346237	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221349587	Marionette	INFO	Listening on port 42567
+1493221349680	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221361584	Marionette	INFO	New connections will no longer be accepted
+[Child 8078] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493221422797	geckodriver	INFO	Listening on 127.0.0.1:42050
+1493221423849	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221424551	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221424553	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221424570	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221424571	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221425438	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221425439	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221425447	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221425448	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221428734	Marionette	INFO	Listening on port 42389
+1493221428806	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221440470	Marionette	INFO	New connections will no longer be accepted
+[Child 8206] WARNING: pipe error (30): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493221518610	geckodriver	INFO	Listening on 127.0.0.1:37914
+1493221519663	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221520366	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221520368	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221520385	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221520386	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221521235	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221521236	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221521244	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221521245	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221524514	Marionette	INFO	Listening on port 37428
+1493221524605	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221540438	Marionette	INFO	New connections will no longer be accepted
+[Child 8336] WARNING: pipe error (17): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493221658735	geckodriver	INFO	Listening on 127.0.0.1:43945
+1493221659784	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221660484	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221660485	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221660503	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221660504	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221661559	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221661560	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221661568	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221661569	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221664856	Marionette	INFO	Listening on port 36732
+1493221665017	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221680955	Marionette	INFO	New connections will no longer be accepted
+1493221791565	geckodriver	INFO	Listening on 127.0.0.1:45747
+1493221792619	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493221793353	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221793354	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221793371	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221793373	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221794553	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221794554	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221794562	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493221794563	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493221797889	Marionette	INFO	Listening on port 33923
+1493221798078	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493221818491	Marionette	INFO	New connections will no longer be accepted
+[Child 8624] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493222123594	geckodriver	INFO	Listening on 127.0.0.1:38037
+1493222124638	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493222125340	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493222125342	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493222125359	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493222125360	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493222126303	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493222126304	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493222126312	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493222126313	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493222129883	Marionette	INFO	Listening on port 42160
+1493222130039	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493222150608	Marionette	INFO	New connections will no longer be accepted
+1493224678710	geckodriver	INFO	Listening on 127.0.0.1:57476
+1493224679758	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493224680504	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224680506	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224680523	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224680524	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224681571	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224681572	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224681580	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224681581	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224685772	Marionette	INFO	Listening on port 40609
+1493224685862	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493224710195	Marionette	INFO	New connections will no longer be accepted
+[Child 9961] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346
+1493224817869	geckodriver	INFO	Listening on 127.0.0.1:59292
+1493224818969	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493224820508	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224820509	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224820526	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224820527	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224821449	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224821450	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224821458	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224821459	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224824998	Marionette	INFO	Listening on port 39887
+1493224825090	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493224850508	Marionette	INFO	New connections will no longer be accepted
+1493224875731	geckodriver	INFO	Listening on 127.0.0.1:60708
+1493224876820	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493224877910	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224877913	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224877935	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224877937	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224878856	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224878857	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224878868	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493224878869	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493224883258	Marionette	INFO	Listening on port 39514
+1493224883422	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493224909422	Marionette	INFO	New connections will no longer be accepted
+1493225120399	geckodriver	INFO	Listening on 127.0.0.1:43892
+1493225121445	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1493225122210	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493225122212	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493225122230	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493225122231	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493225123111	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493225123112	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493225123120	addons.xpi	WARN	Add-on langpack-en-GB@firefox.mozilla.org is not compatible with application version.
+1493225123121	addons.xpi	WARN	Add-on langpack-en-ZA@firefox.mozilla.org is not compatible with application version.
+1493225126452	Marionette	INFO	Listening on port 38871
+1493225126569	Marionette	WARN	TLS certificate errors will be ignored for this session
+1493225152446	Marionette	INFO	New connections will no longer be accepted
+[Child 10366] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-4Fdt0Z/firefox-53.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 346

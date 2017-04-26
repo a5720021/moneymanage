@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest,HttpResponse
-from moneymanage.models import Sav_list,Gold_price
+from moneymanage.models import Sav_list,Gold_price,Stock,Bank
 
 def home(request):
     saving = Sav_list.objects.all()
@@ -29,6 +29,12 @@ def gold(request):
     gold_all = Gold_price.objects.all()
     return render(request, 'gold.html',{'goldall': gold_all})
 
+def stock(request):
+    stock = Stock.objects.all()
+    return render(request, 'stock.html',{'stockall': stock})
 
+def bank(request):
+    bank = Bank.objects.all()
+    return render(request, 'bank.html',{'bankall': bank})
 
 
