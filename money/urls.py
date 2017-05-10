@@ -18,10 +18,12 @@ from django.contrib import admin
 from moneymanage import views
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
-    url(r'^saving$', views.saving, name='saving'),
-    url(r'^gold$', views.gold, name='gold'),
-    url(r'^stock$', views.stock, name='stock'),
-    url(r'^bank$', views.bank, name='bank'),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^login$', views.log_in, name='login'),
+    url(r'^(?P<user_name>\w+)/$', views.home, name='home'),
+    url(r'^(?P<user_name>\w+)/saving/$', views.saving, name='saving'),
+    url(r'^(?P<user_name>\w+)/gold/$', views.gold, name='gold'),
+    url(r'^(?P<user_name>\w+)/stock/$', views.stock, name='stock'),
+    url(r'^(?P<user_name>\w+)/bank/$', views.bank, name='bank'),
 ]

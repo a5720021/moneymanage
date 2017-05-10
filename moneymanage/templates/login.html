@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Money Management Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body background="/static/bank.jpg">
+
+
+  <br><br><br><br><br><br><br><br><br>
+  <center><h1><font color="#C6CC7E">Log-in to MoneyManagement</font></h1>
+  <table border="5" cellspacing="10" cellpadding="5" style="background:#C6CC7E">
+    <tbody>
+      <tr>
+         <td><b>User :</b></td>
+  <form method="POST" action="login">
+  {% csrf_token %}
+        <td><input name="username" type="text" id="username"></td>
+      </tr>
+      <tr>
+        <td><b>Password :</b></td>
+        <td><input name="password" type="password" id="password"></td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="btnSubmit" value="Submit"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+
+</form>
+</div>
+</body>
+</html>

@@ -118,8 +118,8 @@ class BankPageTest(TestCase):
         self.assertTemplateUsed(response, 'bank.html')
 
     def test_displays_all_list_items(self):
-        Bank.objects.create(name='Kasikorn',fixed=1.2,saving=0.5)
-        Bank.objects.create(name='Krungsri',fixed=1.0,saving=0.6)
+        Bank.objects.create(name='Kasikorn',fixed_min=0.6,fixed_max=1.2,saving=0.5)
+        Bank.objects.create(name='Krungsri',fixed_min=0.5,fixed_max=1.4,saving=0.6)
 
         request = HttpRequest()
         response = bank(request)
@@ -129,13 +129,13 @@ class BankPageTest(TestCase):
 class BankModelTest(TestCase):
 
     def test_saving_and_retrieving_items(self):
-        Bank.objects.create(name='Kasikorn',fixed=1.2,saving=0.5)
-        Bank.objects.create(name='Krungsri',fixed=1.0,saving=0.6)
+        Bank.objects.create(name='Kasikorn',fixed_min=0.6,fixed_max=1.2,saving=0.5)
+        Bank.objects.create(name='Krungsri',fixed_min=0.5,fixed_max=1.4,saving=0.6)
 
         bank = Bank.objects.all()
         self.assertEqual(bank.count(), 2)
 
-        self.assertEqual(bank[0].fixed, 1.2) 
+        self.assertEqual(bank[0].fixed_max, 1.2) 
 
 class SavModelTest(TestCase):
 

@@ -1,16 +1,27 @@
 <html>
-   <title>Saving Management</title>
-   <body>
-    <h1>Enter your income or outcome</h1>
-    <form method="POST">
-        <input type="radio" name="type" id="id_type" value="income"> income<br>
-        <input type="radio" name="type" id="id_type2" value="outcome" checked> outcome<br><br>
-        <input name="value" id="id_val" placeholder="Amount" />
-        <input name="description" id="id_des" placeholder="Description" />
-        <input type="submit" id="id_sub" value="Submit">
-        {% csrf_token %}
-    </form>
-    <table id="saving_table">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saving Management</title>
+    <link href="/static/bootstrap/css.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+    <body>
+      <div class="container">
+        <h1>Enter your income or outcome</h1><br>
+        <form method="POST">
+          <input type="radio" name="type" id="id_type" value="income"> income
+          <input type="radio" name="type" id="id_type2" value="outcome" checked> outcome
+          <input name="value" id="id_val" placeholder="Amount" />
+          <input name="description" id="id_des" placeholder="Description" />
+          <input type="submit" id="id_sub" value="Submit">
+          {% csrf_token %}
+        </form>
+      <h1>Your Saving History</h1><br>
+    <table id="saving_table"  class="table table-striped">
         <tr>
              <th>Description</th>
              <th>Amount</th>
@@ -26,6 +37,6 @@
         </tr>
             {% endfor %}
     </table>
-    <a href='/'>Back</a>
+    <a href='/{{ user }}'>Back</a>
    </body>
 </html>

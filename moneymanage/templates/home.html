@@ -1,19 +1,257 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Money Management</title>
-    <a href="saving">Manage your saving</a><br>
-    <body>
-        <h1>Current Money = {{ current_money }}</h1><br>
-        <h1>Income = {{ income }}</h1><br>
-        <h1>Expense = {{ outcome }}</h1><br>
-        <h1>In/Ex Percentage = {{ in_percent }} %</h1><br>
+    <link rel="stylesheet" href="/static/mystyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
-        <h2>Gold Price</h2>
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Type');
+        data.addColumn('number', 'Value');
+        data.addRows([
+          ['Income', {{ income }}],
+          ['Expense', {{ outcome }}],
+        ]);
+
+        // Set chart options
+        var options = {'title':'Saving Effective',
+                       'width':450,
+                       'height':350};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Value", { role: "style" } ],
+          ["Income", {{ income }}, "blue"],
+          ["Expense", {{ outcome }}, "red"],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Income vs Expense",
+        width: 400,
+        height: 350,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+      chart.draw(view, options);
+  }
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart3);
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Value", { role: "style" } ],
+          ["Buy Price", 23000, "gold"],
+          ["Sell Price", 22000, "silver"],
+          ["Previous Buy Price", 22500, "gold"],
+          ["Previous Sell Price", 21000, "silver"],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Current Vs Last Price",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values2"));
+      chart.draw(view, options);
+  }
+
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart4);
+      function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Value", { role: "style" } ],
+          ["MUN", 1502.0, "blue"],
+          ["TES", 1422.0, "green"],
+          ["KFC", 1312.0, "yellow"],
+          ["POL", 1391.0, "red"],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Top Stock Price",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values3"));
+      chart.draw(view, options);
+  }
+
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart5);
+      function drawChart5() {
+        var data = google.visualization.arrayToDataTable([
+          ["Element", "Value", { role: "style" } ],
+          ["Krungsri-Saving", 0.5, "green"],
+          ["Krungsri-Fixed(Max)", 1.2, "gray"],
+          ["SCB-Saving", 0.44, "green"],
+          ["SCB-Fixed(Max)", 1.1, "gray"],
+          ["Bangkok-Saving", 0.2, "green"],
+          ["Bangkok-Fixed(Max)", 0.8, "gray"],
+          ["Kasikorn-Saving", 0.4, "green"],
+          ["Kasikorn-Fixed(Max)", 1.0, "gray"],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Bank Interest",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("barchart_values4"));
+      chart.draw(view, options);
+  }
+    </script>
+</head>
+
+<body background-color="black">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand active" href="#">Money management</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="#myacc">My account</a></li>
+        <li><a href="#gold">Gold Price</a></li>
+        <li><a href="#stock">Stock Price</a></li>
+        <li><a href="#bank">Bank Interest</a></li>
+    </div>
+ </ul>
+</nav>
+<h2 id="myacc"><b>Your Account Statistic.</b></h2>
+<div class="row">
+  <div class="col-sm-4">
+    <div id="chart_div"></div>
+  </div>
+  <div class="col-sm-4">
+    <div id="barchart_values" style="width: 450px; height: 350px;"></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="jumbotron"> 
+      <h3><span class="glyphicon glyphicon-plus-sign"> <b>Income = {{ income }} </b></h3> 
+      <h3><span class="glyphicon glyphicon-minus-sign"> <b>Expense = {{ outcome }}</b> </h3> 
+      <h3><span class="glyphicon glyphicon-euro"> <b>Current money = {{ current_money }} </b></h3> 
+      <h3><span class="glyphicon glyphicon-screenshot"> <b>Effective = {{ in_percent }}%</b></h3> 
+    </div>
+    <a href="saving">Manage your saving</a><br> 
+  </div>
+</div>
+<h2 id="gold"><b>Gold Price.</b></h2> 
+<div class="row">
+  <div class="col-sm-6">
+    <div id="barchart_values2" style="width: 450px; height: 350px;"></div>
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-warning"><h3><b>Buy Price = {{ gold.buy_price }} </b></h3> </li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Sell Price = {{ gold.sell_price }}</b> </h3> </li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Rate buy price = +0.15% </b></h3></li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Rate sell price = +1.22% </b></h3>  </li> 
+      </ul>
         <a href="gold">View Gold Price History</a><br> 
-
-        <h2>Stock Price</h2>
+    </div>
+  </div>
+</div>
+<h2 id="stock"><b>Stock Price.</b></h2> 
+<div class="row">
+  <div class="col-sm-6"> 
+    <div id="barchart_values3" style="width: 450px; height: 350px;"></div>
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-info"><h3><b>Name : {{ stock.name }}</b></h3></li>
+        <li class="list-group-item list-group-item-info"><h3><b>Change : +{{stock.change}}%</b></h3> </li>
+        <li class="list-group-item list-group-item-info"><h3><b>Price : {{stock.value}}</b></h3></li>
+      </ul>
         <a href="stock">View All Stock</a><br> 
+    </div>
+  </div>
+</div>
+</body>
+<h2 id="bank"><b>Bank Interest.</b></h2> 
+<div class="row">
+  <div class="col-sm-6">
+    <div id="barchart_values4" style="width: 450px; height: 350px;"></div>
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success"><h3><b>Bank : {{sav.name}}</b></h3></li>
+        <li class="list-group-item list-group-item-success"><h3><b>Saving : {{sav.saving}}%</b></h3> </li>
 
-        <h2>Bank Interest</h2>
+        <li class="list-group-item list-group-item-success"><h3><b>Fixed : {{fixed.fixed_min}}-{{fixed.fixed_max}}%</b></h3></li>
+      </ul>
         <a href="bank">View Bank Interest</a><br>
-    </body>
+    </div>
+  </div>
+</div>
+</body>
 </html>

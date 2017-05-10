@@ -1,8 +1,11 @@
-<html>
-    <title>Gold Price History</title>
-    <body>
-        <h1>Gold Price History Table</h1><br>
-        <table id="id_gold">
+{% extends 'basetable.html' %}
+
+{% block header_text %}Gold Price History{% endblock %}
+
+{% block title_text %}Gold Price History{% endblock %}
+
+{% block table %}
+        <table id="id_gold" class="table table-striped">
             <tr>
              <th>Date</th>
              <th>Buy Price</th>
@@ -16,6 +19,5 @@
             </tr>
             {% endfor %}
     </table>
-        <a href="/">Back</a><br>
-    </body>
-</html>
+{% endblock %}
+

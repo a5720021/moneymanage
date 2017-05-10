@@ -12,8 +12,8 @@ class NewVisitorTest(LiveServerTestCase):
         Gold_price.objects.create(buy_price=24000,sell_price='23000')
         Stock.objects.create(name='TES',value=2400,change=5.2)
         Stock.objects.create(name='CPA',value=1500,change=-2.5)
-        Bank.objects.create(name='Kasikorn',fixed=1.2,saving=0.5)
-        Bank.objects.create(name='Krungsri',fixed=1.0,saving=0.6)
+        Bank.objects.create(name='Kasikorn',fixed_min=0.6,fixed_max=1.2,saving=0.5)
+        Bank.objects.create(name='Krungsri',fixed_min=0.5,fixed_max=1.4,saving=0.6)
         self.browser = webdriver.Firefox()
 
     def tearDown(self):
@@ -77,7 +77,7 @@ class NewVisitorTest(LiveServerTestCase):
         gold_page = self.browser.find_element_by_partial_link_text('Gold')
         self.assertIn('View Gold Price History', gold_page.text)
         gold_page.click()
-        time.sleep(2)
+        time.sleep(15)
 
         #He's now in a Gold Price History Page.
         #He think gold is a bad way to invest.then he come back.

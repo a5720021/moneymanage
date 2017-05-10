@@ -1,21 +1,23 @@
-<html>
-    <title>Bank Interest</title>
-    <body>
-        <h1>Bank Interest</h1><br>
-        <table id="id_bank">
+{% extends 'basetable.html' %}
+
+{% block header_text %}Bank Interest{% endblock %}
+
+{% block title_text %}Bank's Interest{% endblock %}
+
+{% block table %}
+        <table id="id_bank" class="table table-striped">
             <tr>
              <th>Name</th>
              <th>Saving Profit(%)</th>
-             <th>Fixed Profit(%)</th>
+             <th>Fixed Profit(%) [3 months - 10 years]</th>
             </tr>
             {% for bank in bankall %}
             <tr>    
              <td>{{ bank.name }}</td> 
              <td>{{ bank.saving }}</td>
-             <td>{{ bank.fixed }}</td>
+             <td>{{ bank.fixed_min }} - {{ bank.fixed_max }}</td>
             </tr>
             {% endfor %}
     </table>
-        <a href="/">Back</a><br>
-    </body>
-</html>
+{% endblock %}
+
