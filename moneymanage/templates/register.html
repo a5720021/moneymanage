@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block header_text %}Register{% endblock %}
+{% block form %}
+  <form method="POST" action="register2">
+  {% csrf_token %}
+    <label for="username">Username :  </label>
+    	<input type="text" name="username" id="id_usr_reg"><br/>
+    <label for="password">Password :  </label>
+    	<input type="password" name="password" id="id_pw_reg"><br/>
+    <label for="email">Email :  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+    	<input type="text" name="email" id="id_email_reg"><br/>
+    <button type="submit" name="submit" id="id_sub_reg">Submit</button><br/><br/>
+    <a href="/">Back to Log-in</a>
+  </form>
+{% endblock %}

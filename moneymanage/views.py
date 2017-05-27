@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect,render_to_response
 from django.http import HttpRequest,HttpResponse
 from moneymanage.models import Sav_list,Gold_price,Stock,Bank
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login ,logout
+from django.contrib.auth.models import User
 
 def home(request,user_name):
     saving = Sav_list.objects.filter(owner=user_name)
@@ -13,14 +14,14 @@ def home(request,user_name):
     in_money = 0
     out_money = 0
     for i in saving:
-        if(i.sav_type == 'outcome'):
+        if(i.sav_type == 'expense'):
             cur_money -= i.amount
             out_money += i.amount
         else:
             cur_money += i.amount
             in_money += i.amount
     percent = "{0:.2f}".format(float(cur_money) / (in_money+1) * 100)
-    return render(request, 'home.html',{'income' : in_money ,'outcome' : out_money ,'in_percent': float(percent),'current_money' : cur_money,'gold' : cur_gold ,'stock' : interest_stock ,'sav' : top_bank_sav,'fixed' : top_bank_fixed})
+    return render(request, 'home.html',{'income' : in_money ,'outcome' : out_money ,'in_percent': float(percent),'current_money' : cur_money,'gold' : cur_gold ,'stock' : interest_stock ,'sav' : top_bank_sav,'fixed' : top_bank_fixed,'user':user_name})
 
 def saving(request,user_name):
     if request.method == 'POST':
@@ -47,19 +48,27 @@ def log_in(request):
     password = request.POST['password']
     user = authenticate(username=username, password=password)
     if user is not None:
-        #login(request,user)
+        login(request,user)
         return redirect('/%s/' %(username))
 
     else:
         return HttpResponse("Error invaid login.")
 
+def logout_view(request,user_name):
+    logout(request)
+    return redirect('/')
+
 def index(request):
-    """xdata = ["Apple", "Apricot", "Avocado", "Banana", "Boysenberries", "Blueberries", "Dates", "Grapefruit", "Kiwi", "Lemon"]
-    ydata = [52, 48, 160, 94, 75, 71, 490, 82, 46, 17]
-    chartdata = {'x': xdata, 'y': ydata}
-    charttype = "pieChart"
-    chartcontainer = 'piechart_container'
-    data = {'charttype': charttype,'chartdata': chartdata,'chartcontainer': chartcontainer,'extra': {'x_is_date': False,'x_axis_format': '','tag_script_js': True,'jquery_on_ready': False,}}
-    #return render_to_response('login.html', data)"""
     return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def register2(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    email = request.POST['email']
+    user = User.objects.create_user(username, email, password)
+    user.save()
+    return render(request, 'register.html')
 

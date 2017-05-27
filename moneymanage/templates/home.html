@@ -181,10 +181,15 @@
         <li><a href="#gold">Gold Price</a></li>
         <li><a href="#stock">Stock Price</a></li>
         <li><a href="#bank">Bank Interest</a></li>
-    </div>
+        <li><a href="#about">About</a></li>
  </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"> <b>Welcome, {{ user }}</b> </a></li>
+      <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+    </div>
 </nav>
-<h2 id="myacc"><b>Your Account Statistic.</b></h2>
+<h2 id="myacc"><b>Your Account Statistic</b></h2>
 <div class="row">
   <div class="col-sm-4">
     <div id="chart_div"></div>
@@ -202,7 +207,7 @@
     <a href="saving">Manage your saving</a><br> 
   </div>
 </div>
-<h2 id="gold"><b>Gold Price.</b></h2> 
+<h2 id="gold"><b>Gold Price</b></h2> 
 <div class="row">
   <div class="col-sm-6">
     <div id="barchart_values2" style="width: 450px; height: 350px;"></div>
@@ -219,7 +224,7 @@
     </div>
   </div>
 </div>
-<h2 id="stock"><b>Stock Price.</b></h2> 
+<h2 id="stock"><b>Stock Price</b></h2> 
 <div class="row">
   <div class="col-sm-6"> 
     <div id="barchart_values3" style="width: 450px; height: 350px;"></div>
@@ -236,7 +241,7 @@
   </div>
 </div>
 </body>
-<h2 id="bank"><b>Bank Interest.</b></h2> 
+<h2 id="bank"><b>Bank Interests</b></h2> 
 <div class="row">
   <div class="col-sm-6">
     <div id="barchart_values4" style="width: 450px; height: 350px;"></div>
@@ -245,13 +250,17 @@
     <div class="jumbotron">
       <ul class="list-group">
         <li class="list-group-item list-group-item-success"><h3><b>Bank : {{sav.name}}</b></h3></li>
-        <li class="list-group-item list-group-item-success"><h3><b>Saving : {{sav.saving}}%</b></h3> </li>
-
+        <li class="list-group-item list-group-item-success"><h3><b>Saving : {{sav.saving}}%</b></h3></li>
         <li class="list-group-item list-group-item-success"><h3><b>Fixed : {{fixed.fixed_min}}-{{fixed.fixed_max}}%</b></h3></li>
       </ul>
-        <a href="bank">View Bank Interest</a><br>
+       <a href="bank">View Bank Interest</a><br>
     </div>
   </div>
+</div>
+<h2 id="about"><b>About</b></h2> <br>
+<div class="row">
+  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis Web Application is a part of Buiding Software 2/2559.</h4>
+<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBuild for people who want to manage his saving and want to invest in gold,stock or bank interests.</h4><h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWarning! This app is DEMO Version , some function may be error or can not run in your device.</h4>
 </div>
 </body>
 </html>

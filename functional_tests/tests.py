@@ -1,11 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import unittest
 import time
+from django.contrib.auth.models import User
 from moneymanage.models import Sav_list,Gold_price,Stock,Bank
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         Gold_price.objects.create(buy_price=25000,sell_price='24000')
@@ -28,6 +29,30 @@ class NewVisitorTest(LiveServerTestCase):
         #Somchai heard about money management web app.. he want to try. first
         #he go to it's homepage.
         self.browser.get(self.live_server_url)
+        time.sleep(2)
+
+        #He register before log-in
+        self.browser.find_element_by_partial_link_text('Create').click()
+        time.sleep(2)
+        login_name_create = self.browser.find_element_by_id('id_usr_reg')
+        login_name_create.send_keys('test')
+        password_login_create = self.browser.find_element_by_id('id_pw_reg')
+        password_login_create.send_keys('Munggy44101')
+        email = self.browser.find_element_by_id('id_email_reg')
+        email.send_keys('mung@test.com')
+        self.browser.find_element_by_id("id_sub_reg").click()
+        time.sleep(2)
+        self.browser.find_element_by_partial_link_text('Back').click()
+        time.sleep(2)
+        
+        #He is logging in to moneymanagement homepage.
+        login_name = self.browser.find_element_by_id('id_usr')
+        login_name.send_keys('test')
+        password_login = self.browser.find_element_by_id('id_pw')
+        password_login.send_keys('Munggy44101')
+        time.sleep(2)
+        self.browser.find_element_by_id("id_sub").click()
+        time.sleep(3)
 
         #First thing he saw is title.The title name is "Money management".
         title_home = self.browser.find_element_by_tag_name('title')
@@ -74,10 +99,9 @@ class NewVisitorTest(LiveServerTestCase):
         #he look at statistical(pie chart) about his money.
         #Next,he found chart about gold price,stock price and Deposit interests.
         #He interest about gold price.then he go to see gold price history.
-        gold_page = self.browser.find_element_by_partial_link_text('Gold')
-        self.assertIn('View Gold Price History', gold_page.text)
+        gold_page = self.browser.find_element_by_partial_link_text('View Gold')
         gold_page.click()
-        time.sleep(15)
+        time.sleep(2)
 
         #He's now in a Gold Price History Page.
         #He think gold is a bad way to invest.then he come back.
@@ -88,7 +112,7 @@ class NewVisitorTest(LiveServerTestCase):
         time.sleep(2)
 
         #Next,he go to stock price page.
-        stock_page = self.browser.find_element_by_partial_link_text('Stock')
+        stock_page = self.browser.find_element_by_partial_link_text('View All Stock')
         stock_page.click()
         time.sleep(2)
 
@@ -99,7 +123,7 @@ class NewVisitorTest(LiveServerTestCase):
         time.sleep(2)
 
         #He go to see bank interests it's not a way to rich.
-        bank_page = self.browser.find_element_by_partial_link_text('Bank')
+        bank_page = self.browser.find_element_by_partial_link_text('View Bank')
         bank_page.click()
 
         #He found the  best way he want to invest and He close this app.
