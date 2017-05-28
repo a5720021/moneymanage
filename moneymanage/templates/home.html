@@ -18,10 +18,14 @@
     <script type="text/javascript">
 
       // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['corechart','line','bar']});
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.setOnLoadCallback(drawChart4);
+      google.charts.setOnLoadCallback(drawChart5);
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
@@ -47,8 +51,7 @@
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart2);
+
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
           ["Element", "Value", { role: "style" } ],
@@ -74,45 +77,39 @@
       var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
       chart.draw(view, options);
   }
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart3);
-      function drawChart3() {
-        var data = google.visualization.arrayToDataTable([
-          ["Element", "Value", { role: "style" } ],
-          ["Buy Price", 23000, "gold"],
-          ["Sell Price", 22000, "silver"],
-          ["Previous Buy Price", 22500, "gold"],
-          ["Previous Sell Price", 21000, "silver"],
-        ]);
 
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
+    function drawChart3() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Update time');
+      data.addColumn('number', 'Buy Price');
+      data.addColumn('number', 'Sell Price');
+      data.addRows([
+       {% for golds in gold %}
+        [{{ forloop.counter }},  {{ golds.buy_price }}, {{ golds.sell_price }}],
+       {% endfor %}
+      ]);
 
       var options = {
-        title: "Current Vs Last Price",
+        chart: {
+          title: 'Gold price history',
+          subtitle: 'latest 5 days'
+        },
         width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
+        height: 450
       };
-      var chart = new google.visualization.BarChart(document.getElementById("barchart_values2"));
-      chart.draw(view, options);
-  }
 
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart4);
+      var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
       function drawChart4() {
         var data = google.visualization.arrayToDataTable([
-          ["Element", "Value", { role: "style" } ],
-          ["MUN", 1502.0, "blue"],
-          ["TES", 1422.0, "green"],
-          ["KFC", 1312.0, "yellow"],
-          ["POL", 1391.0, "red"],
+          ["Element", "Value",{ role: "style" },{ role: 'annotation' }],
+       {% for stocks in stock %}
+          ["{{ stocks.stock_name }}", {{ stocks.value }}, "blue","+{{ stocks.change }}%"],
+       {% endfor %}
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -121,7 +118,7 @@
                          sourceColumn: 1,
                          type: "string",
                          role: "annotation" },
-                       2]);
+                       3]);
 
       var options = {
         title: "Top Stock Price",
@@ -134,39 +131,26 @@
       chart.draw(view, options);
   }
 
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart5);
-      function drawChart5() {
+       function drawChart5() {
         var data = google.visualization.arrayToDataTable([
-          ["Element", "Value", { role: "style" } ],
-          ["Krungsri-Saving", 0.5, "green"],
-          ["Krungsri-Fixed(Max)", 1.2, "gray"],
-          ["SCB-Saving", 0.44, "green"],
-          ["SCB-Fixed(Max)", 1.1, "gray"],
-          ["Bangkok-Saving", 0.2, "green"],
-          ["Bangkok-Fixed(Max)", 0.8, "gray"],
-          ["Kasikorn-Saving", 0.4, "green"],
-          ["Kasikorn-Fixed(Max)", 1.0, "gray"],
+          ['Bank name', 'Saving (%)', 'Fixed(Max) (%)'],
+          ["{{ sav.0.name }}", {{ sav.0.saving }}, {{ fixed.0.fixed_max }}],
+          ["{{ sav.1.name }}", {{ sav.1.saving }}, {{ fixed.1.fixed_max }}],
+          ["{{ sav.2.name }}", {{ sav.2.saving }}, {{ fixed.2.fixed_max }}],
+          ["{{ sav.3.name }}", {{ sav.3.saving }}, {{ fixed.3.fixed_max }}]
         ]);
 
-        var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
+        var options = {
+          chart: {
+            title: 'Bank Interests',
+            subtitle: 'Updated Profit Saving & Fixed(Max)',
+          }
+        };
 
-      var options = {
-        title: "Bank Interest",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "95%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.BarChart(document.getElementById("barchart_values4"));
-      chart.draw(view, options);
-  }
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material2'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
     </script>
 </head>
 
@@ -210,15 +194,15 @@
 <h2 id="gold"><b>Gold Price</b></h2> 
 <div class="row">
   <div class="col-sm-6">
-    <div id="barchart_values2" style="width: 450px; height: 350px;"></div>
+    <div id="linechart_material" style="width: 450px; height: 350px;"></div>
   </div>
   <div class="col-sm-6">
     <div class="jumbotron">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-warning"><h3><b>Buy Price = {{ gold.buy_price }} </b></h3> </li>
-        <li class="list-group-item list-group-item-warning"><h3><b>Sell Price = {{ gold.sell_price }}</b> </h3> </li>
-        <li class="list-group-item list-group-item-warning"><h3><b>Rate buy price = +0.15% </b></h3></li>
-        <li class="list-group-item list-group-item-warning"><h3><b>Rate sell price = +1.22% </b></h3>  </li> 
+        <li class="list-group-item list-group-item-warning"><h3><b>Buy Price = {{ gold.0.buy_price }} </b></h3> </li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Sell Price = {{ gold.0.sell_price }}</b> </h3> </li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Last buy price = {{gold.1.buy_price}} </b></h3></li>
+        <li class="list-group-item list-group-item-warning"><h3><b>Last sell price = {{gold.1.sell_price}} </b></h3>  </li> 
       </ul>
         <a href="gold">View Gold Price History</a><br> 
     </div>
@@ -232,9 +216,9 @@
   <div class="col-sm-6">
     <div class="jumbotron">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-info"><h3><b>Name : {{ stock.name }}</b></h3></li>
-        <li class="list-group-item list-group-item-info"><h3><b>Change : +{{stock.change}}%</b></h3> </li>
-        <li class="list-group-item list-group-item-info"><h3><b>Price : {{stock.value}}</b></h3></li>
+        <li class="list-group-item list-group-item-info"><h3><b>Name : {{ stock.0.stock_name }}</b></h3></li>
+        <li class="list-group-item list-group-item-info"><h3><b>Change : +{{stock.0.change}}%</b></h3> </li>
+        <li class="list-group-item list-group-item-info"><h3><b>Price : {{stock.0.value}}</b></h3></li>
       </ul>
         <a href="stock">View All Stock</a><br> 
     </div>
@@ -244,14 +228,14 @@
 <h2 id="bank"><b>Bank Interests</b></h2> 
 <div class="row">
   <div class="col-sm-6">
-    <div id="barchart_values4" style="width: 450px; height: 350px;"></div>
+    <div id="columnchart_material2" style="width: 550px; height: 400px;"></div>
   </div>
   <div class="col-sm-6">
     <div class="jumbotron">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-success"><h3><b>Bank : {{sav.name}}</b></h3></li>
-        <li class="list-group-item list-group-item-success"><h3><b>Saving : {{sav.saving}}%</b></h3></li>
-        <li class="list-group-item list-group-item-success"><h3><b>Fixed : {{fixed.fixed_min}}-{{fixed.fixed_max}}%</b></h3></li>
+        <li class="list-group-item list-group-item-success"><h3><b>Bank : {{sav.0.name}}</b></h3></li>
+        <li class="list-group-item list-group-item-success"><h3><b>Saving : {{sav.0.saving}}%</b></h3></li>
+        <li class="list-group-item list-group-item-success"><h3><b>Fixed : {{fixed.0.fixed_min}}-{{fixed.0.fixed_max}}%</b></h3></li>
       </ul>
        <a href="bank">View Bank Interest</a><br>
     </div>
@@ -259,8 +243,7 @@
 </div>
 <h2 id="about"><b>About</b></h2> <br>
 <div class="row">
-  <h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis Web Application is a part of Buiding Software 2/2559.</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBuild for people who want to manage his saving and want to invest in gold,stock or bank interests.</h4><h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWarning! This app is DEMO Version , some function may be error or can not run in your device.</h4>
+<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis app is Build for people who want to manage his saving and want to invest in gold,stock or bank interests.</h4><h4> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWarning! This app is DEMO Version , some function may be error or can not run in your device.</h4>
 </div>
 </body>
 </html>

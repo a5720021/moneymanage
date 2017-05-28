@@ -15,7 +15,7 @@ class Gold_price(models.Model):
     add_time = models.DateTimeField(default=datetime.now)
 
 class Stock(models.Model):
-    name = models.CharField(max_length=10)
+    stock_name = models.CharField(max_length=10)
     value = models.FloatField(default=0.0)
     change = models.FloatField(default=0.0)
     add_time = models.DateTimeField(default=datetime.now)

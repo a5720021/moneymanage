@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 
 def home(request,user_name):
     saving = Sav_list.objects.filter(owner=user_name)
-    cur_gold = Gold_price.objects.all().order_by('-add_time').first()
-    interest_stock = Stock.objects.all().order_by('-change').first()
-    top_bank_sav = Bank.objects.all().order_by('-saving').first()
-    top_bank_fixed = Bank.objects.all().order_by('-fixed_max').first()
+    cur_gold = Gold_price.objects.order_by('-add_time')
+    interest_stock = Stock.objects.order_by('-change')
+    top_bank_sav = Bank.objects.order_by('-saving')
+    top_bank_fixed = Bank.objects.order_by('-fixed_max')
     cur_money = 0
     in_money = 0
     out_money = 0
@@ -32,7 +32,7 @@ def saving(request,user_name):
     return render(request, 'saving.html',{'items': items,'user' : user_name})
 
 def gold(request,user_name):
-    gold_all = Gold_price.objects.all()
+    gold_all = Gold_price.objects.order_by('-add_time')
     return render(request, 'gold.html',{'goldall': gold_all,'user' : user_name})
 
 def stock(request,user_name):
