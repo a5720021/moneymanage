@@ -29,11 +29,15 @@
              <th>Date</th>
         </tr>
             {% for item in items %}
-        <tr>    
-            <td>{{ item.description }}</td> 
+        <tr>
+            <td>{{ item.description }}</td>
             <td>{{ item.amount }}</td>
             <td>{{ item.sav_type }}</td>
-            <td>{{ item.sav_time }}</td>
+            <form method="POST" action="delete">
+                {% csrf_token %}
+                <td>{{ item.sav_time }} &nbsp&nbsp&nbsp&nbsp
+                <button type="submit" id="del" name="delid" value={{ item.id }} class="btn btn-danger">Delete</button>
+            </form>
         </tr>
             {% endfor %}
     </table>

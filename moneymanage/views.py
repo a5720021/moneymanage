@@ -72,3 +72,7 @@ def register2(request):
     user.save()
     return render(request, 'register.html')
 
+def delete(request,user_name):
+    delid = request.POST['delid']
+    Sav_list.objects.filter(id=delid).delete()
+    return redirect('/%s/saving' %(user_name))

@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^(?P<user_name>\w+)/gold/$', views.gold, name='gold'),
     url(r'^(?P<user_name>\w+)/stock/$', views.stock, name='stock'),
     url(r'^(?P<user_name>\w+)/bank/$', views.bank, name='bank'),
+    url(r'^(?P<user_name>\w+)/saving/delete$', views.delete, name='delete'),
 ]
