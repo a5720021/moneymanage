@@ -37,8 +37,8 @@ class StockModelTest(TestCase):
 
     #Test stock data can save in databases
     def test_saving_and_retrieving_items(self):
-        Stock.objects.create(name='TES',value=2400,change=5.2)
-        Stock.objects.create(name='CPA',value=1500,change=-2.5)
+        Stock.objects.create(stock_name='TES',value=2400,change=5.2)
+        Stock.objects.create(stock_name='CPA',value=1500,change=-2.5)
 
         stock = Stock.objects.all()
         self.assertEqual(stock.count(), 2)

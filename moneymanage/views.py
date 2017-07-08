@@ -25,11 +25,21 @@ def home(request,user_name):
 
 def saving(request,user_name):
     if request.method == 'POST':
-        Sav_list.objects.create(description=request.POST['description'],amount=int(request.POST['value']),sav_type=request.POST['type'],owner=user_name)
-        return redirect('/%s/saving' %(user_name))
+        try:
+            Sav_list.objects.create(description=request.POST['description'],amount=int(request.POST['value']),sav_type=request.POST['type'],owner=user_name)
+            return redirect('/%s/saving' %(user_name))
+        except ValueError:
+            return HttpResponse(
+            "<h1>ERROR : Type of value error</h1>"+
+            "<p>Please fill correct type of value</p>"+
+            "<p>-Amount : Integer</p>"+
+            "<p>-Description : Text(String)</p>"+
+            "<a href=''/%s/saving''>Return to Saving Management</a>" %(user_name)
+            )
 
     items = Sav_list.objects.filter(owner=user_name)
     return render(request, 'saving.html',{'items': items,'user' : user_name})
+
 
 def gold(request,user_name):
     gold_all = Gold_price.objects.order_by('-add_time')
@@ -52,7 +62,12 @@ def log_in(request):
         return redirect('/%s/' %(username))
 
     else:
-        return HttpResponse("Error invaid login.")
+        return HttpResponse(
+            "<h1>ERROR : Wrong username or password</h1>"+
+            "<p>Please try again or register before login</p>"+
+            "<a href='/'>Return to home</a>"
+            )
+
 
 def logout_view(request,user_name):
     logout(request)
