@@ -36,7 +36,7 @@
             <form method="POST" action="delete">
                 {% csrf_token %}
                 <td>{{ item.sav_time }} &nbsp&nbsp&nbsp&nbsp
-                <button type="submit" id="del" name="delid" value={{ item.id }} class="btn btn-danger">Delete</button>
+                <button type="submit" id={{ forloop.counter }} name="delid" value={{ item.id }} class="btn btn-danger">Delete</button>
             </form>
         </tr>
             {% endfor %}

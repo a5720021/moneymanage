@@ -44,7 +44,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         time.sleep(2)
         self.browser.find_element_by_partial_link_text('Back').click()
         time.sleep(2)
-        
+
         #He is logging in to moneymanagement homepage.
         login_name = self.browser.find_element_by_id('id_usr')
         login_name.send_keys('test')
@@ -86,6 +86,20 @@ class NewVisitorTest(StaticLiveServerTestCase):
         inputbox2 = self.browser.find_element_by_id('id_des')
         inputbox2.send_keys('Buy a new mobile')
         self.browser.find_element_by_id("id_sub").click()
+        time.sleep(2)
+
+        #He think he won lottery amount 30000$
+        sav_type = self.browser.find_element_by_id("id_type")
+        sav_type.click()
+        inputbox1 = self.browser.find_element_by_id('id_val')
+        inputbox1.send_keys('30000')
+        inputbox2 = self.browser.find_element_by_id('id_des')
+        inputbox2.send_keys('Won lottery')
+        self.browser.find_element_by_id("id_sub").click()
+        time.sleep(2)
+
+        #But he misunderstand and He's going to remove his saving about "won lottery"
+        self.browser.find_element_by_id('3').click()
         time.sleep(2)
 
         #He saw history about his saving.
